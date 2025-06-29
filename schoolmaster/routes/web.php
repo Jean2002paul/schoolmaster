@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\EleveController;
+use App\Http\Controllers\ClasseController;
 
 // Route pour afficher le formulaire de connexion
 Route::get('/login', function () {
@@ -34,3 +36,9 @@ Route::post('/logout', function () {
     request()->session()->regenerateToken();
     return redirect('/login');
 })->name('logout');
+
+
+Route::resource('eleves', EleveController::class);
+
+Route::resource('classes', ClasseController::class)
+    ->parameters(['classes' => 'classe']);

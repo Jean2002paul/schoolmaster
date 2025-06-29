@@ -21,9 +21,18 @@
             padding: 1rem 2rem;
             color: #fff;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+        }
+        .brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .brand i {
+            margin-right: 0.5rem;
         }
         main {
             flex-grow: 1;
@@ -53,13 +62,16 @@
         /* Responsive */
         @media (max-width: 768px) {
             header {
-                justify-content: center;
                 flex-direction: column;
                 text-align: center;
                 padding: 1rem;
             }
+            .brand {
+                margin-bottom: 0.5rem;
+                justify-content: center;
+            }
             .logout-link {
-                margin: 0.5rem 0 0 0;
+                margin: 0;
             }
             main {
                 padding: 1rem;
@@ -70,6 +82,9 @@
 </head>
 <body>
     <header>
+        <div class="brand">
+            <i class="fas fa-graduation-cap"></i> SchoolMaster Admin
+        </div>
         <a href="{{ route('logout') }}"
            class="logout-link"
            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

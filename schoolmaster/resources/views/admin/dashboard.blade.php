@@ -25,10 +25,18 @@
         <p style="color: #34495e;">Vous êtes connecté sur le tableau de bord administrateur de <strong>SchoolMaster</strong>.</p>
 
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
-            <div class="dashboard-card" style="background: #1abc9c;">
-                <h2><i class="fas fa-user-graduate"></i></h2>
-                <p>Gestion des élèves</p>
-            </div>
+            <a href="{{ route('eleves.index') }}" style="text-decoration: none;">
+                <div class="dashboard-card" style="background: #1abc9c;">
+                    <h2><i class="fas fa-user-graduate"></i></h2>
+                    <p>Gestion des élèves</p>
+                </div>
+            </a>
+            <a href="{{ route('classes.index') }}" style="text-decoration: none;">
+                <div class="dashboard-card" style="background: #27ae60;">
+                    <h2><i class="fas fa-school"></i></h2>
+                    <p>Gestion des classes</p>
+                </div>
+            </a>
             <div class="dashboard-card" style="background: #3498db;">
                 <h2><i class="fas fa-chalkboard-teacher"></i></h2>
                 <p>Gestion des enseignants</p>
