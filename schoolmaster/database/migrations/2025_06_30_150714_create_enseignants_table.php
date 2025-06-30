@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('eleves', function (Blueprint $table) {
+        Schema::create('enseignants', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->enum('sexe', ['Féminin', 'Masculin']); 
             $table->string('email')->unique();
             $table->string('telephone')->nullable();
-            $table->foreignId('classe_id')->constrained('classes')->onDelete('cascade');
+            $table->enum('sexe', ['Féminin', 'Masculin']);
+            $table->string('matiere'); // ajout de la colonne matiere
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('eleves');
+        Schema::dropIfExists('enseignants');
     }
 };

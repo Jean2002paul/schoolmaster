@@ -14,18 +14,14 @@
     }
     .form-wrapper h1 {
         color: #2c3e50;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
         text-align: center;
-    }
-    .form-wrapper form div {
-        margin-bottom: 1rem;
     }
     .form-wrapper label {
         display: block;
         margin-bottom: 0.3rem;
-        color: #34495e;
         font-weight: bold;
+        color: #34495e;
     }
     .form-wrapper input,
     .form-wrapper select {
@@ -34,6 +30,7 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
+        margin-bottom: 0.8rem;
     }
     .form-wrapper .error {
         color: #e74c3c;
@@ -49,13 +46,13 @@
         border: none;
         cursor: pointer;
         display: inline-block;
+        margin-right: 0.5rem;
     }
     .add-btn:hover {
         background: #16a085;
     }
     .form-wrapper a.add-btn {
         background: #e67e22;
-        margin-left: 0.5rem;
     }
     .form-wrapper a.add-btn:hover {
         background: #d35400;
@@ -68,7 +65,7 @@
         @csrf
         @method('PUT')
 
-        <div>
+        <div>  
             <label for="nom">Nom</label>
             <input type="text" name="nom" id="nom" value="{{ old('nom', $eleve->nom) }}" required>
             @error('nom')
@@ -80,6 +77,18 @@
             <label for="prenom">Prénom</label>
             <input type="text" name="prenom" id="prenom" value="{{ old('prenom', $eleve->prenom) }}" required>
             @error('prenom')
+                <div class="error">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div>
+            <label for="sexe">Sexe</label>
+            <select name="sexe" id="sexe" required>
+                <option value="">Sélectionner le sexe</option>
+                <option value="Féminin" {{ old('sexe', $eleve->sexe) == 'Féminin' ? 'selected' : '' }}>Féminin</option>
+                <option value="Masculin" {{ old('sexe', $eleve->sexe) == 'Masculin' ? 'selected' : '' }}>Masculin</option>
+            </select>
+            @error('sexe')
                 <div class="error">{{ $message }}</div>
             @enderror
         </div>

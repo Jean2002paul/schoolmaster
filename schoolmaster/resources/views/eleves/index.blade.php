@@ -113,6 +113,7 @@
                 <th><i class="fas fa-hashtag"></i></th>
                 <th><i class="fas fa-user"></i> Nom</th>
                 <th><i class="fas fa-user"></i> Prénom</th>
+                <th><i class="fas fa-venus-mars"></i> Sexe</th>
                 <th><i class="fas fa-school"></i> Classe</th>
                 <th><i class="fas fa-envelope"></i> Email</th>
                 <th><i class="fas fa-phone"></i> Téléphone</th>
@@ -125,6 +126,7 @@
                 <td>{{ $loop->iteration + ($eleves->currentPage()-1)*$eleves->perPage() }}</td>
                 <td>{{ $eleve->nom }}</td>
                 <td>{{ $eleve->prenom }}</td>
+                <td>{{ $eleve->sexe }}</td>
                 <td>{{ $eleve->classe->nom }}</td>
                 <td>{{ $eleve->email }}</td>
                 <td>{{ $eleve->telephone }}</td>
@@ -143,7 +145,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="7" style="text-align:center;">Aucun élève trouvé.</td>
+                <td colspan="8" style="text-align:center;">Aucun élève trouvé.</td>
             </tr>
             @endforelse
         </tbody>

@@ -94,6 +94,18 @@
         </div>
 
         <div>
+            <label for="sexe">Sexe</label>
+            <select name="sexe" id="sexe" required>
+                <option value="">Sélectionner le sexe</option>
+                <option value="Féminin" {{ old('sexe') == 'Féminin' ? 'selected' : '' }}>Féminin</option>
+                <option value="Masculin" {{ old('sexe') == 'Masculin' ? 'selected' : '' }}>Masculin</option>
+            </select>
+            @error('sexe')
+                <div class="error">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div>
             <label for="classe_id">Classe</label>
             <select name="classe_id" id="classe_id" required>
                 <option value="">Sélectionner une classe</option>
@@ -123,6 +135,8 @@
                 <div class="error">{{ $message }}</div>
             @enderror
         </div>
+
+        
 
         <button type="submit" class="btn btn-save">
             <i class="fas fa-save"></i> Enregistrer

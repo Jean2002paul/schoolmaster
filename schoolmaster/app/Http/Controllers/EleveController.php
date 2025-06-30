@@ -36,6 +36,7 @@ class EleveController extends Controller
         $validatedData = $request->validate([
             'nom' => 'required|max:255',
             'prenom' => 'required|max:255',
+            'sexe' => 'required|in:Féminin,Masculin',
             'classe_id' => 'required|exists:classes,id',
             'email' => 'required|email|max:255|unique:eleves,email',
             'telephone' => 'nullable|max:20',

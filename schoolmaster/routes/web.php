@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EleveController;
 use App\Http\Controllers\ClasseController;
+use App\Http\Controllers\EnseignantController;
 
 // Route pour afficher le formulaire de connexion
 Route::get('/login', function () {
@@ -42,3 +43,5 @@ Route::resource('eleves', EleveController::class);
 
 Route::resource('classes', ClasseController::class)
     ->parameters(['classes' => 'classe']);
+
+Route::resource('enseignants', EnseignantController::class);

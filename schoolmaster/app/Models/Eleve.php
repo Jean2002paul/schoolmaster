@@ -9,6 +9,7 @@ class Eleve extends Model
     protected $fillable = [
         'nom',
         'prenom',
+        'sexe',        
         'classe_id',
         'email',
         'telephone',
